@@ -74,29 +74,29 @@ public class DateMethodsService {
         int month= userDate.getMonthValue();
         int day=userDate.getDayOfMonth();
         if      ((month == 12 && day >= 22 && day <= 31) || (month ==  1 && day >= 1 && day <= 19))
-            dateQuerry.setAstrologicalSigns("capricorn");
+            dateQuerry.setAstrologicalSigns("Capricorn");
         else if ((month ==  1 && day >= 20 && day <= 31) || (month ==  2 && day >= 1 && day <= 17))
-            dateQuerry.setAstrologicalSigns("aquarius");
+            dateQuerry.setAstrologicalSigns("Aquarius");
         else if ((month ==  2 && day >= 18 && day <= 29) || (month ==  3 && day >= 1 && day <= 19))
-            dateQuerry.setAstrologicalSigns("pisces");
+            dateQuerry.setAstrologicalSigns("Pisces");
         else if ((month ==  3 && day >= 20 && day <= 31) || (month ==  4 && day >= 1 && day <= 19))
-            dateQuerry.setAstrologicalSigns("aries");
+            dateQuerry.setAstrologicalSigns("Aries");
         else if ((month ==  4 && day >= 20 && day <= 30) || (month ==  5 && day >= 1 && day <= 20))
-            dateQuerry.setAstrologicalSigns("taurus");
+            dateQuerry.setAstrologicalSigns("Taurus");
         else if ((month ==  5 && day >= 21 && day <= 31) || (month ==  6 && day >= 1 && day <= 20))
-            dateQuerry.setAstrologicalSigns("gemini");
+            dateQuerry.setAstrologicalSigns("Gemini");
         else if ((month ==  6 && day >= 21 && day <= 30) || (month ==  7 && day >= 1 && day <= 22))
-            dateQuerry.setAstrologicalSigns("cancer");
+            dateQuerry.setAstrologicalSigns("Cancer");
         else if ((month ==  7 && day >= 23 && day <= 31) || (month ==  8 && day >= 1 && day <= 22))
-            dateQuerry.setAstrologicalSigns("leo");
+            dateQuerry.setAstrologicalSigns("Leo");
         else if ((month ==  8 && day >= 23 && day <= 31) || (month ==  9 && day >= 1 && day <= 22))
-            dateQuerry.setAstrologicalSigns("virgo");
+            dateQuerry.setAstrologicalSigns("Virgo");
         else if ((month ==  9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22))
-            dateQuerry.setAstrologicalSigns("libra");
+            dateQuerry.setAstrologicalSigns("Libra");
         else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21))
-            dateQuerry.setAstrologicalSigns("scorpio");
+            dateQuerry.setAstrologicalSigns("Scorpio");
         else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21))
-            dateQuerry.setAstrologicalSigns("sagittarius");
+            dateQuerry.setAstrologicalSigns("Sagittarius");
         dateQuerryRepository.save(dateQuerry);
     }
 
@@ -135,7 +135,7 @@ public class DateMethodsService {
     public void  addTodayHoroscope(DateQuerry dateQuerry){
         RestTemplate restTemplate = new RestTemplate();
         String sunsign = dateQuerry.getAstrologicalSigns();
-        Horoscope horoscope=restTemplate.getForObject("http://horoscope-api.herokuapp.com/horoscope/today/" + sunsign,Horoscope.class);
+        Horoscope horoscope=restTemplate.getForObject("http://horoscope-api.herokuapp.com/horoscope/today/" + sunsign.toLowerCase(),Horoscope.class);
         String thisHoroscope=horoscope.getHoroscope();
         thisHoroscope=thisHoroscope.replace("['","");
         thisHoroscope=thisHoroscope.replace("']","");
