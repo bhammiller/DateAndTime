@@ -109,6 +109,8 @@ public class MainController {
             dateFacts.addDayCharacter(dateQuerry);
             dateFacts.addWesternZodiac(dateQuerry);
             dateQuerryRepository.save(dateQuerry);
+            dateFacts.addTodayHoroscope(dateQuerry);
+            dateQuerryRepository.save(dateQuerry);
             /*appUser.addDateQuerry(dateQuerry);
             appUserRepository.save(appUser);*/
             return "redirect:/showname";

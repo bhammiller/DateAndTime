@@ -29,6 +29,12 @@ public class DateQuerry {
 
     private String astrologicalSigns;
 
+    @Lob
+    @Column(length=100000)
+    private String todaysHoroscope;
+
+    private String tommorrowsHoroscope;
+
     @Transient
     LocalDate userDate=null;
     @Transient
@@ -115,6 +121,22 @@ public class DateQuerry {
 
     public void setAstrologicalSigns(String astrologicalSigns) {
         this.astrologicalSigns = astrologicalSigns;
+    }
+
+    public String getTodaysHoroscope() {
+        return todaysHoroscope;
+    }
+
+    public void setTodaysHoroscope(String todaysHoroscope) {
+        this.todaysHoroscope = todaysHoroscope;
+    }
+
+    public String getTommorrowsHoroscope() {
+        return tommorrowsHoroscope;
+    }
+
+    public void setTommorrowsHoroscope(String tommorrowsHoroscope) {
+        this.tommorrowsHoroscope = tommorrowsHoroscope;
     }
 
     // Contructors
