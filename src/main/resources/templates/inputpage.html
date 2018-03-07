@@ -28,9 +28,55 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-md-12">
 
-                    <!-- your content here -->
+                        <div class="card">
+                            <div class="header">
+                                <legend>Day Name Checker</legend>
+                            </div>
+                            <div class="content">
+                                <form method="post" action="#" th:action="@{/getdate}"
+                                      th:object="${getdate}" class="form-horizontal">
 
+                                    <fieldset>
+                                        <input type="hidden" th:field="*{id}" />
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Date</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputDate" th:field="*{inputDate}">
+                                                <span class="help-block">Enter a Date in the Past(dd/mm/yyyy)</span>
+                                                <span th:if="${#fields.hasErrors('inputDate')}"
+                                                      th:errors="*{inputDate}" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                       <!-- <div class="form-group">
+                                            <label class="col-sm-2 control-label">Category of Lost Item</label>
+                                            <div class="col-sm-10">
+                                                <div class="radio">
+                                                    <label><input data-toggle="radio" type="radio" th:field="*{itemType}" value="clothes" name="optradio1"/>Clothes</label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label><input data-toggle="radio" type="radio" th:field="*{itemType}" value="pet" name="optradio2"/>Pet</label>
+                                                </div>
+                                                <div class="radio ">
+                                                    <label><input data-toggle="radio" type="radio" th:field="*{itemType}" value="other" name="optradio3" />Other</label>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <div class="form-group">
+                                            <label class="col-md-3"></label>
+                                            <div class="col-md-9">
+                                                <button type="submit" class="btn btn-fill btn-info">Submit</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+
+                            </div>
+                        </div>  <!-- end card -->
+
+                    </div>
                 </div>
             </div>
         </div>
